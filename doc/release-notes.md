@@ -95,7 +95,7 @@ Also, enabling wallet encryption no longer requires a wallet restart.
 Sporks
 ------
 Several spork changes have been made to streamline code and improve system
-reliability. Activation of `SPORK_22_PS_MORE_PARTICIPANTS` in KII v0.16
+reliability. Activation of `SPORK_22_PS_MORE_PARTICIPANTS` in KII v1.0.1
 has rendered that spork unnecessary. The associated logic has been hardened
 and the spork removed. `SPORK_21_QUORUM_ALL_CONNECTED` logic has been split
 into two sporks, `SPORK_21_QUORUM_ALL_CONNECTED` and `SPORK_23_QUORUM_POSE`,
@@ -159,7 +159,7 @@ The new RPCs are:
 - `upgradetohd`
 
 The deprecated RPCs are all related to the deprecation of wallet accounts and
-will be removed in KII v0.18. Note that the deprecation of wallet accounts
+will be removed in KII v1.0.2. Note that the deprecation of wallet accounts
 means that any RPCs that previously accepted an “account” parameter are
 affected — please refer to the RPC help for details about specific RPCs.
 
