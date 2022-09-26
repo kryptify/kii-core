@@ -263,7 +263,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Announce the release:
 
-  - Release on KII forum: https://www.kii.global/forum/topic/official-announcements.54/
+  - Release on KII forum: https://www.kii.global/
 
   - Optionally Discord, twitter, reddit /r/KIIglobal, ... but this will usually sort out itself
 
