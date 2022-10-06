@@ -98,9 +98,9 @@ jobs:
 #    - <<: *buildsrc
 #      name: src-linux32
 #      env: BUILD_TARGET=linux32
-#    - <<: *buildsrc
-#      name: src-linux64
-#      env: BUILD_TARGET=linux64
+    - <<: *buildsrc
+      name: src-linux64
+      env: BUILD_TARGET=linux64
 #    - <<: *buildsrc
 #      name: src-linux64_nowallet
 #      env: BUILD_TARGET=linux64_nowallet
@@ -122,9 +122,9 @@ jobs:
 #    - <<: *runtests
 #      name: tests-linux32
 #      env: BUILD_TARGET=linux32
-#    - <<: *runtests
-#      name: tests-linux64
-#      env: BUILD_TARGET=linux64
+    - <<: *runtests
+      name: tests-linux64
+      env: BUILD_TARGET=linux64
 #    - <<: *runtests
 #      name: tests-linux64_nowallet
 #      env: BUILD_TARGET=linux64_nowallet
@@ -134,11 +134,11 @@ jobs:
 #        - BUILD_TARGET=linux64_release
 #        - DOCKER_BUILD=true
 #    # build docker
-#    - <<: *builddocker
-#      name: docker-linux64_release
-#      env:
-#        - BUILD_TARGET=linux64_release
-#        - DOCKER_BUILD=true
+    - <<: *builddocker
+      name: docker-linux64_release
+      env:
+        - BUILD_TARGET=linux64_release
+        - DOCKER_BUILD=true
 
 before_cache:
   # Save builder image
