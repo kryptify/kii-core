@@ -3,7 +3,7 @@
 #   IPv6 support
 
 sudo: required
-dist: bionic
+dist: focal
 
 os: linux
 language: minimal
