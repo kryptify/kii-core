@@ -48,6 +48,10 @@ cd build-ci
 make distdir VERSION=$BUILD_TARGET
 
 cd kii-$BUILD_TARGET
+echo "I am here kii-$BUILD_TARGET"
+pwd
+
+./autogen.sh
 ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 
 make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
