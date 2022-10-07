@@ -18,6 +18,7 @@ cache:
 
 env:
   global:
+    - SONAR_TOKEN: "2145a165fed83cfe944b62f6f8bd552860cb5931"
     # DOCKER_HUB_USER
     - secure: "HzDlVXb4C7H3FOnuOu1TiyYzx1EXTcY3KS5oItO+h23UHZLl6K7xqp38sRimIT4CrfB6fD8Xia7hQvY6MLts/r7yBUV90YSgxsmGg1iTiDa9jRW6orVAB2z5drkDHGWyF0PaJy9skY0f2dWljL1Lk9g0Ef+pyJz/P/H03Pv3Nx5JdJs+IfU6DXlRq1dsqgRWNsrVJSMvRuZeP0V5kjaoeafdyma6Ehj8yVsRbznSH1qFuWs4TPC/8J2L1QngtLd9MvnlnUGRjrUUoQS1GpR/UJ9/TiDwWgoWJxyv53IX+pIkvk1XQDmji9GT0mXMTokejMYVT35ISx3N+8i2SmS9MqT+Du+2viuqADDNRkvZKBT7qKqredYa3KF0VRm1STRXseIPY8dVMyxaeeNPilisaSk8xBq/mWXifHVrK/wR0Eg0ukIli/bnKieA8UqKwKxCoPafTrWQyja3muJVqfH/grTajJLz9swM5woIDe1JxlBemsRsBDx/uK5DUTxlPt4P7VBARkbR2orh9ArCFDBlO2BDqwyzRlDMO0EG3wLYEzLxA8NOp39CTYb8R3mC6+noJ8lXSQ58pclWVKN8atdzYwrqEHuhirqU+HEMjgnWl76IeZwBsOZrhyYTl6BtIW+E5RiVx16VtlyJxmspAetvNmB+nvyZi+AodkXVRfW8CVk="
 
@@ -177,3 +178,4 @@ after_script:
     - echo $TRAVIS_COMMIT_LOG
 after_success:
     - if [ "$DOCKER_BUILD" = "true" ]; then docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD && ./docker/push-docker.sh; fi
+
