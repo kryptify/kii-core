@@ -8,6 +8,12 @@ dist: focal
 os: linux
 language: minimal
 
+addons:
+  sonarcloud:
+    organization: "kiiglobal"
+    token:
+      secure: "Lt5NPtLvE0jdWsISPZRJ995R3nvjbxZU+oITGOXrvGvgzX+8x3X0lmibpUH1lT9MOlF4atNsqFXeOnKTiXWa2zpX+hNEwdfgfMRR2kCU5V6aMtfsUz3SPm+Auxud+0SAV3THi6zNbR3tviGWVAIhg0zx25G1QakbnFQD41gzSRpqNPyeLZCAzx91bwUKyC0b8AiSk1x9/Izhnv8bqFDZXPZqHEjKv5VX/Sk5htAeojxb6Looa/RU0nc25wK5ndOvun53iTUqwyJaEDk40jR93X84MquRULUNyeKCVs47wSz1enza5gjemhZDFE1G65BNsYm5peO3LMgf2GQb/13WIErdR5yOxGp85AFKv0kn/2NabeRMe1Hgim8WwCh6cV7OkDiHicuMBcYsI4JB2owqlC9dO3HphUxHacwBiqjTLozPsv5V0SZiAixF6UpQheW8dSBtqu63Mfq47znUsQrSH9T4wSzDtFS8bWTE4WwZqYjMVVDo0bwKrM5k9hqLE0jg7vKyG2tVjpIcvItuMm+gEiD9QnCR7r2eMTE6JXnFuR/eYKjAALMkgWHdRGyQpmkXUJmIJeRJgzHp7mFtnjScnkCERlJVQ5AlE3kkSQjVmblTZ2i8mXTSa9HVyjjgye+EDQyOjSzfD59wy6aqlW6WNmEdN7Mrx729xgNRYihWVBs="
+
 services:
   - docker
 
@@ -179,8 +185,4 @@ after_script:
 after_success:
     - if [ "$DOCKER_BUILD" = "true" ]; then docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD && ./docker/push-docker.sh; fi
 
-addons:
-  sonarcloud:
-    organization: "kiiglobal"
-    token:
-      secure: "Lt5NPtLvE0jdWsISPZRJ995R3nvjbxZU+oITGOXrvGvgzX+8x3X0lmibpUH1lT9MOlF4atNsqFXeOnKTiXWa2zpX+hNEwdfgfMRR2kCU5V6aMtfsUz3SPm+Auxud+0SAV3THi6zNbR3tviGWVAIhg0zx25G1QakbnFQD41gzSRpqNPyeLZCAzx91bwUKyC0b8AiSk1x9/Izhnv8bqFDZXPZqHEjKv5VX/Sk5htAeojxb6Looa/RU0nc25wK5ndOvun53iTUqwyJaEDk40jR93X84MquRULUNyeKCVs47wSz1enza5gjemhZDFE1G65BNsYm5peO3LMgf2GQb/13WIErdR5yOxGp85AFKv0kn/2NabeRMe1Hgim8WwCh6cV7OkDiHicuMBcYsI4JB2owqlC9dO3HphUxHacwBiqjTLozPsv5V0SZiAixF6UpQheW8dSBtqu63Mfq47znUsQrSH9T4wSzDtFS8bWTE4WwZqYjMVVDo0bwKrM5k9hqLE0jg7vKyG2tVjpIcvItuMm+gEiD9QnCR7r2eMTE6JXnFuR/eYKjAALMkgWHdRGyQpmkXUJmIJeRJgzHp7mFtnjScnkCERlJVQ5AlE3kkSQjVmblTZ2i8mXTSa9HVyjjgye+EDQyOjSzfD59wy6aqlW6WNmEdN7Mrx729xgNRYihWVBs="
+
