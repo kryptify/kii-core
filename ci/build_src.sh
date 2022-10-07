@@ -45,20 +45,17 @@ mkdir build-ci
 cd build-ci
 
 
-echo "I am here"
-pwd
-echo "BITCOIN_CONFIG_ALL=$BITCOIN_CONFIG_ALL | BITCOIN_CONFIG=$BITCOIN_CONFIG"
-
-env
+#echo "I am here"
+#pwd
+#echo "BITCOIN_CONFIG_ALL=$BITCOIN_CONFIG_ALL | BITCOIN_CONFIG=$BITCOIN_CONFIG"
+#env
 
 ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
-make distdir VERSION=$BUILD_TARGET
+#make distdir VERSION=$BUILD_TARGET
 
-cd kii-$BUILD_TARGET
+#cd kii-$BUILD_TARGET
 
-pwd
-
-
+cd ..
+./autogen.sh
 ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
-
 make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
