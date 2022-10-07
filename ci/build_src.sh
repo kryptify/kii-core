@@ -55,6 +55,8 @@ cd build-ci
 
 #cd kii-$BUILD_TARGET
 
+NPROC=(nproc --all)
+
 cd ..
 ./autogen.sh
 ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
@@ -62,6 +64,10 @@ cd ..
 
 
 export SONAR_SCANNER_HOME=${TRAVIS_HOME}/.sonarscanner/sonar-scanner
+echo --------------------------
+echo "Dir TRAVIS_HOME"
+echo ls -la ${TRAVIS_HOME}/
+echo -----------------------
 
 # Wraps the compilation with the Build Wrapper to generate configuration (used
 # later by the SonarScanner) into the "bw-output" folder
