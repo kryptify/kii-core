@@ -58,13 +58,22 @@ cd build-ci
 cd ..
 ./autogen.sh
 ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
-make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
+#make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
 
+
+export SONAR_SCANNER_HOME=${TRAVIS_HOME}/.sonarscanner/sonar-scanner
 
 # Wraps the compilation with the Build Wrapper to generate configuration (used
 # later by the SonarScanner) into the "bw-output" folder
+echo This is env
+env
+echo ----------------------------
+echo About to run SonarCloud make Wrapper
+echo ----------------------------
 build-wrapper-linux-x86-64 --out-dir bw-output make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
 
 # And finally run the SonarCloud analysis - read the "sonar-project.properties"
 # file to see the specific configuration
+echo About to run sonar-scanner
+echo ----------------------------
 sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output

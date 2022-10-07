@@ -6,7 +6,7 @@ sudo: required
 dist: focal
 
 os: linux
-language: minimal
+language: c++
 
 addons:
   sonarcloud:
