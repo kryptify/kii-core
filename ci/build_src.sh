@@ -50,9 +50,8 @@ cd build-ci
 #echo "BITCOIN_CONFIG_ALL=$BITCOIN_CONFIG_ALL | BITCOIN_CONFIG=$BITCOIN_CONFIG"
 #env
 
-../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+#../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 #make distdir VERSION=$BUILD_TARGET
-
 #cd kii-$BUILD_TARGET
 
 NPROC=(nproc --all)
@@ -62,19 +61,21 @@ cd ..
 #./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 #make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
 
-echo --------------------------
-echo java version
-java -version
-java --version
-echo --------------------------
+#echo --------------------------
+#echo java version
+#java -version
+#java --version
+#echo --------------------------
 
 
 export SONAR_SCANNER_HOME=${TRAVIS_HOME}/.sonarscanner/sonar-scanner
 echo --------------------------
 echo "Dir TRAVIS_HOME"
 echo ls -la ${TRAVIS_HOME}/
-ls -la / | grep -i sonar
+ls -lR / | grep -i sonar
 echo -----------------------
+
+exit 1
 
 # Wraps the compilation with the Build Wrapper to generate configuration (used
 # later by the SonarScanner) into the "bw-output" folder
