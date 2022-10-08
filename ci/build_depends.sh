@@ -28,15 +28,11 @@ if [ -n "$OSX_SDK" ]; then
   fi
 fi
 
-sudo apt-get install -y openjdk-11-jdk
-
-
 echo ===============================
-echo java version
-java -version
-echo ===============================
-echo Buscando el bendito build-wrapper-linux-x86-64
-which build-wrapper-linux-x86-64
+echo Testing wrapper and sonar-scanner
+$SONAR_SCANNER_HOME/bin/sonar-scanner
+find ./ -name build-wrapper-linux-x86-64 
+
 echo ----------------------------------
 
 exit 1
