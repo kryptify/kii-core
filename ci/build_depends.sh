@@ -29,11 +29,11 @@ if [ -n "$OSX_SDK" ]; then
 fi
 
 echo ===============================
-echo Testing wrapper and sonar-scanner
-ls -lR ${TRAVIS_HOME}/.sonarscanner
+echo Testing wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
+#ls -lR ${TRAVIS_HOME}/.sonarscanner
 #$SONAR_SCANNER_HOME/bin/sonar-scanner
-find ./ -name build-wrapper-linux-x86-64 
-
+find / -name build-wrapper-linux-x86-64 
+find / -name sonar-scanner
 echo ----------------------------------
 
 exit 1
