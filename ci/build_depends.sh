@@ -28,10 +28,16 @@ if [ -n "$OSX_SDK" ]; then
   fi
 fi
 
+apt-get install -y openjdk-11-jdk
+
+
 echo ===============================
 echo java version
 java -version
 echo ===============================
+echo Buscando el bendito build-wrapper-linux-x86-64
+which build-wrapper-linux-x86-64
+echo ----------------------------------
 
 exit 1
 make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS > /dev/null

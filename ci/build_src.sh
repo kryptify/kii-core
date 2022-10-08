@@ -81,6 +81,30 @@ exit 1
 # later by the SonarScanner) into the "bw-output" folder
 echo This is env
 env
+
+### sonar cloud setup
+
+#First, make sure we have java 11 sdk
+apt-get install -y openjdk-11-jdk
+
+#Get and install sonar-scanner in /opt
+
+SONAR_URL="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli"
+SONAR_FILE="sonar-scanner-cli-4.7.0.2747"
+SONAR_DIR="sonar-scanner-4.7.0.2747"
+
+rm -rf /opt/sonar-scanner*
+
+mkdir -p /opt
+pushd /opt
+wget $SONAR_URL/$SONAR_FILE.zip
+unzip $SONAR_FILE.zip
+
+export PATH=$PATH:/opt/$SONAR_DIR/bin
+echo --------- Done installing SonarCloud binaries -------------
+
+
+
 echo ----------------------------
 echo About to run SonarCloud make Wrapper
 echo ----------------------------
