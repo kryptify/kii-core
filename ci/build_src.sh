@@ -58,15 +58,22 @@ cd build-ci
 NPROC=(nproc --all)
 
 cd ..
-./autogen.sh
-./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+#./autogen.sh
+#./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 #make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
+
+echo --------------------------
+echo java version
+java -version
+java --version
+echo --------------------------
 
 
 export SONAR_SCANNER_HOME=${TRAVIS_HOME}/.sonarscanner/sonar-scanner
 echo --------------------------
 echo "Dir TRAVIS_HOME"
 echo ls -la ${TRAVIS_HOME}/
+ls -la / | grep -i sonar
 echo -----------------------
 
 # Wraps the compilation with the Build Wrapper to generate configuration (used
