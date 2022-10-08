@@ -28,7 +28,7 @@ if [ -n "$OSX_SDK" ]; then
   fi
 fi
 
-apt-get install -y openjdk-11-jdk
+sudo apt-get install -y openjdk-11-jdk
 
 
 echo ===============================
