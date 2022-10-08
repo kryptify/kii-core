@@ -36,8 +36,12 @@ cd
 cd /home
 
 echo -------------------- ls -----------------
-ls -lR 
+ls -laR 
 echo -------------------- ls -----------------
+echo -------------------- ls -----------------
+sudo ls / -laR 
+echo -------------------- ls -----------------
+
 #$SONAR_SCANNER_HOME/bin/sonar-scanner
 find ./ -name build-wrapper-linux-x86-64 
 find ./ -name sonar-scanner
