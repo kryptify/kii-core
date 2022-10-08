@@ -30,10 +30,17 @@ fi
 
 echo ===============================
 echo Testing wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
-#ls -lR ${TRAVIS_HOME}/.sonarscanner
+whoami
+pwd
+cd
+cd /home
+
+echo -------------------- ls -----------------
+ls -lR 
+echo -------------------- ls -----------------
 #$SONAR_SCANNER_HOME/bin/sonar-scanner
-find / -name build-wrapper-linux-x86-64 
-find / -name sonar-scanner
+find ./ -name build-wrapper-linux-x86-64 
+find ./ -name sonar-scanner
 echo ----------------------------------
 
 exit 1
