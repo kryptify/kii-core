@@ -14,6 +14,9 @@ addons:
     token:
       secure: "Lt5NPtLvE0jdWsISPZRJ995R3nvjbxZU+oITGOXrvGvgzX+8x3X0lmibpUH1lT9MOlF4atNsqFXeOnKTiXWa2zpX+hNEwdfgfMRR2kCU5V6aMtfsUz3SPm+Auxud+0SAV3THi6zNbR3tviGWVAIhg0zx25G1QakbnFQD41gzSRpqNPyeLZCAzx91bwUKyC0b8AiSk1x9/Izhnv8bqFDZXPZqHEjKv5VX/Sk5htAeojxb6Looa/RU0nc25wK5ndOvun53iTUqwyJaEDk40jR93X84MquRULUNyeKCVs47wSz1enza5gjemhZDFE1G65BNsYm5peO3LMgf2GQb/13WIErdR5yOxGp85AFKv0kn/2NabeRMe1Hgim8WwCh6cV7OkDiHicuMBcYsI4JB2owqlC9dO3HphUxHacwBiqjTLozPsv5V0SZiAixF6UpQheW8dSBtqu63Mfq47znUsQrSH9T4wSzDtFS8bWTE4WwZqYjMVVDo0bwKrM5k9hqLE0jg7vKyG2tVjpIcvItuMm+gEiD9QnCR7r2eMTE6JXnFuR/eYKjAALMkgWHdRGyQpmkXUJmIJeRJgzHp7mFtnjScnkCERlJVQ5AlE3kkSQjVmblTZ2i8mXTSa9HVyjjgye+EDQyOjSzfD59wy6aqlW6WNmEdN7Mrx729xgNRYihWVBs="
 
+jdk:
+  - oraclejdk11
+  
 services:
   - docker
 
@@ -168,7 +171,7 @@ install:
     - ls -lah $HOST_CACHE_DIR && ls -lah $HOST_CACHE_DIR/depends && ls -lah $HOST_CACHE_DIR/ccache && ls -lah $HOST_CACHE_DIR/docker
     # Load cached builder image
     - if [ -f $HOST_CACHE_DIR/docker/kii-builder-$BUILD_TARGET.tar.gz ]; then zcat $HOST_CACHE_DIR/docker/kii-builder-$BUILD_TARGET.tar.gz | docker load || true; fi
-    - travis_retry docker pull ubuntu:bionic
+    - travis_retry docker pull ubuntu:focal
     - travis_retry docker build -t $BUILDER_IMAGE_NAME --build-arg=USER_ID=$UID --build-arg=GROUP_ID=$UID --build-arg=BUILD_TARGET=$BUILD_TARGET -f ci/Dockerfile.builder ci
 before_script:
     # Make sure stdout is in blocking mode. Otherwise builds will fail due to large writes to stdout

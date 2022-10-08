@@ -28,4 +28,10 @@ if [ -n "$OSX_SDK" ]; then
   fi
 fi
 
+echo ===============================
+echo java version
+java -version
+echo ===============================
+
+exit 1
 make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS > /dev/null
