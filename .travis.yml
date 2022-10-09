@@ -30,20 +30,24 @@ before_install:
   - sudo apt-get update -qq # make the output less noisy
 
 script:
-  - echo "Testing SonarCloud scripts"
-  - sonar-scanner
-  - build-wrapper-linux-x86-64
-  - echo Finished
   - exit 0
   - cd depends
-  - echo "About to build depends"
-  - make HOST=$ARCH -j4 > /dev/null
+    - export CPUS=$(nproc --all)
+  - echo "About to build depends with -j${CPUS}"
+  - make HOST=$ARCH -j${CPUS} > /dev/null 2>&1
+  - echo "-------------------------------------"
   - cd ..
   - echo "About to make autogen.sh"
   - ./autogen.sh
-  - echo "About to ./configure"
+  - echo "-------------------------------------"
+- echo "About to ./configure"
   - mkdir build 
   - CONFIG_SITE=$(pwd)/depends//$ARCH/share/config.site ./configure --prefix=./build/$ARCH
-  - echo "About to make"
-  - make -j4
-  - echo "End Successful"
+  - echo "-------------------------------------"
+  - echo "About to make with -j$CPUS"
+  - build-wrapper-linux-x86-64 --out-dir bw-output make make -j${CPUS} || ( echo "Build failure. Verbose build follows." && false )
+  - echo "-------------------------------------"
+  - echo "About to run sonar-scanner"
+  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+  - echo "-------------------------------------"
+  - echo "Process ended"
