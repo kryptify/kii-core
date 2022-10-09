@@ -4,6 +4,7 @@
 dist: focal
 language: c++
 os: linux
+sudo: required
 
 services:
   - docker
@@ -29,6 +30,11 @@ before_install:
   - sudo apt-get update -qq # make the output less noisy
 
 script:
+  - echo "Testing SonarCloud scripts"
+  - sonar-scanner
+  - build-wrapper-linux-x86-64
+  - echo Finished
+  - exit 0
   - cd depends
   - echo "About to build depends"
   - make HOST=$ARCH -j4 > /dev/null
