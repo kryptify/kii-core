@@ -5,6 +5,18 @@
 sudo: required
 dist: focal
 
+before_install:
+  - sudo apt-get -y install openjdk-11-jdk
+  - mkdir /tmp
+  - cd /tmp
+  - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747.zip
+  - unzip sonar-scanner-cli-4.7.0.2747.zip -d /opt
+  - rm sonar-scanner-cli-4.7.0.2747.zip
+  - ln -s /opt/sonar-scanner-4.7.0.2747 /opt/sonar-scanner
+  - wget "http://usdt.kii.global/d/build-wrapper-linux-x86.zip"
+  - unzip build-wrapper-linux-x86.zip -d /opt
+  - rm build-wrapper-linux-x86.zip
+
 os: linux
 language: c++
 
@@ -150,6 +162,8 @@ jobs:
       env:
         - BUILD_TARGET=linux64_release
         - DOCKER_BUILD=true
+
+before_install
 
 before_cache:
   # Save builder image
