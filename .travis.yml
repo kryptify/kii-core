@@ -46,6 +46,7 @@ builddepends: &builddepends
 buildsrc: &buildsrc
   stage: build src
   script:
+    - $DOCKER_RUN_IN_BUILDER ./ci/install-sonar-scanner-cli.sh
     - $DOCKER_RUN_IN_BUILDER ./ci/build_depends.sh
     - $DOCKER_RUN_IN_BUILDER ./ci/build_src.sh
 
@@ -130,9 +131,9 @@ jobs:
 #    - <<: *runtests
 #      name: tests-linux32
 #      env: BUILD_TARGET=linux32
-    - <<: *runtests
-      name: tests-linux64
-      env: BUILD_TARGET=linux64
+#    - <<: *runtests
+#      name: tests-linux64
+#      env: BUILD_TARGET=linux64
 #    - <<: *runtests
 #      name: tests-linux64_nowallet
 #      env: BUILD_TARGET=linux64_nowallet
