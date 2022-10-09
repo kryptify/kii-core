@@ -41,7 +41,7 @@ script:
   - echo "-------------------------------------"
   - echo "About to ./configure in dire $(pwd)"
   - mkdir -p build 
-  - CONFIG_SITE=$(pwd)/depends/$ARCH/share/config.site ./configure --prefix=./build/$ARCH
+  - CONFIG_SITE=$(pwd)/depends/$ARCH/share/config.site ./configure --prefix=$(pwd)/build/$ARCH
   - echo "-------------------------------------"
   - echo "About to make with -j$(nproc --all)"
   - build-wrapper-linux-x86-64 --out-dir bw-output make make -j$(nproc --all) || ( echo "Build failure. Verbose build follows." && false )
