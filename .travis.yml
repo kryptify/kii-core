@@ -25,7 +25,7 @@ env:
     - SONAR=true
     - ARCH="x86_64-pc-linux-gnu"
 #    - SONAR_TOKEN: "2145a165fed83cfe944b62f6f8bd552860cb5931"
-
+ 
 before_install:
   - sudo apt-get update -qq # make the output less noisy
 
@@ -34,13 +34,14 @@ script:
   - echo "About to build depends with $(nproc --all)"
   - ./run-with-dots.sh make HOST=$ARCH -j$(nproc --all) > /dev/null 2>&1
   - echo "-------------------------------------"
+  - echo Finished makeing depends, still at directory $(pwd)
   - cd ..
-  - echo "About to make autogen.sh"
+  - echo "About to make autogen.sh i directory $(pwd)"
   - ./autogen.sh
   - echo "-------------------------------------"
-  - echo "About to ./configure"
-  - mkdir build 
-  - CONFIG_SITE=$(pwd)/depends//$ARCH/share/config.site ./configure --prefix=./build/$ARCH
+  - echo "About to ./configure in dire $(pwd)"
+  - mkdir -p build 
+  - CONFIG_SITE=$(pwd)/depends/$ARCH/share/config.site ./configure --prefix=./build/$ARCH
   - echo "-------------------------------------"
   - echo "About to make with -j$(nproc --all)"
   - build-wrapper-linux-x86-64 --out-dir bw-output make make -j$(nproc --all) || ( echo "Build failure. Verbose build follows." && false )
