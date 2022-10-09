@@ -33,7 +33,7 @@ env:
     - DOCKER_BUILD=false
 
 stages:
-  - build depends
+#  - build depends
   - build src
   - run tests
   - build docker

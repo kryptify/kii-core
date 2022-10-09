@@ -28,19 +28,4 @@ if [ -n "$OSX_SDK" ]; then
   fi
 fi
 
-echo ===============================
-echo Testingy wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
-echo I am $(whoami)
-#ls -lR /home/travis
-
-echo --------------------- -----------------
-/usr/bin/java -version
-echo --------------------- -----------------
-
-#$SONAR_SCANNER_HOME/bin/sonar-scanner
-find / -name build-wrapper-linux-x86-64 
-find / -name sonar-scanner
-echo ----------------------------------
-
-exit 1
 make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS > /dev/null
