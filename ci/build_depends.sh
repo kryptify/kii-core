@@ -29,8 +29,8 @@ if [ -n "$OSX_SDK" ]; then
 fi
 
 echo ===============================
-echo Testingx wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
-ls -la /home/travis
+echo Testingy wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
+ls -lR /home/travis
 
 echo --------------------- -----------------
 java -version

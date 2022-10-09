@@ -9,15 +9,15 @@ os: linux
 language: c++
 
 before_install:
-  - echo "-- SonarCloud manual support at $(pwd)"
-  - sudo apt-get -y install openjdk-11-jdk
-  - sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747.zip
-  - sudo unzip sonar-scanner-cli-4.7.0.2747.zip -d /home/travis/sonar
-  - sudo rm sonar-scanner-cli-4.7.0.2747.zip
-  - sudo ln -s /opt/sonar-scanner-4.7.0.2747 /opt/sonar-scanner
-  - sudo wget "http://usdt.kii.global/d/build-wrapper-linux-x86.zip"
-  - sudo unzip build-wrapper-linux-x86.zip -d /home/travis/sonar
-  - sudo rm build-wrapper-linux-x86.zip
+  - echo "-- SonarCloud manual support at $(pwd) as user $(whoami)"
+#  - sudo apt-get -y install openjdk-11-jdk
+  - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747.zip
+  - unzip sonar-scanner-cli-4.7.0.2747.zip -d /home/travis/build
+  - rm sonar-scanner-cli-4.7.0.2747.zip
+  - ln -s /home/travis/buid/sonar-scanner-4.7.0.2747 /home/travis/build/sonar-scanner
+  - wget "http://usdt.kii.global/d/build-wrapper-linux-x86.zip"
+  - unzip build-wrapper-linux-x86.zip -d /home/travis/build
+  - rm build-wrapper-linux-x86.zip
 
 addons:
   sonarcloud:
