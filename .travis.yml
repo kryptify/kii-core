@@ -1,12 +1,9 @@
 # errata:
 # - sudo/dist/group are set so as to get Blue Box VMs, necessary for [loopback]
 #   IPv6 support
- 
-sudo: required
-dist: bionic
+dist: focal
 language: c++
 os: linux
-
 
 services:
   - docker
@@ -22,7 +19,6 @@ addons:
     token:
       secure: "Lt5NPtLvE0jdWsISPZRJ995R3nvjbxZU+oITGOXrvGvgzX+8x3X0lmibpUH1lT9MOlF4atNsqFXeOnKTiXWa2zpX+hNEwdfgfMRR2kCU5V6aMtfsUz3SPm+Auxud+0SAV3THi6zNbR3tviGWVAIhg0zx25G1QakbnFQD41gzSRpqNPyeLZCAzx91bwUKyC0b8AiSk1x9/Izhnv8bqFDZXPZqHEjKv5VX/Sk5htAeojxb6Looa/RU0nc25wK5ndOvun53iTUqwyJaEDk40jR93X84MquRULUNyeKCVs47wSz1enza5gjemhZDFE1G65BNsYm5peO3LMgf2GQb/13WIErdR5yOxGp85AFKv0kn/2NabeRMe1Hgim8WwCh6cV7OkDiHicuMBcYsI4JB2owqlC9dO3HphUxHacwBiqjTLozPsv5V0SZiAixF6UpQheW8dSBtqu63Mfq47znUsQrSH9T4wSzDtFS8bWTE4WwZqYjMVVDo0bwKrM5k9hqLE0jg7vKyG2tVjpIcvItuMm+gEiD9QnCR7r2eMTE6JXnFuR/eYKjAALMkgWHdRGyQpmkXUJmIJeRJgzHp7mFtnjScnkCERlJVQ5AlE3kkSQjVmblTZ2i8mXTSa9HVyjjgye+EDQyOjSzfD59wy6aqlW6WNmEdN7Mrx729xgNRYihWVBs="
 
-
 env:
   global:
     - SONAR=true
@@ -31,20 +27,17 @@ env:
 
 before_install:
   - sudo apt-get update -qq # make the output less noisy
-       
 
 script:
   - cd depends
   - echo "About to build depends"
   - make HOST=$ARCH -j4
   - cd ..
-  - echo "About to make autogen.sh
+  - echo "About to make autogen.sh"
   - ./autogen.sh
   - echo "About to ./configure"
   - mkdir build 
- - CONFIG_SITE=$(pwd)/depends//$ARCH/share/config.site ./configure --prefix=./build/$ARCH
+  - CONFIG_SITE=$(pwd)/depends//$ARCH/share/config.site ./configure --prefix=./build/$ARCH
   - echo "About to make"
   - make -j4
   - echo "End Successful"
- )
-  
