@@ -31,10 +31,10 @@ fi
 echo ===============================
 echo Testingy wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
 echo I am $(whoami)
-ls -lR /home/travis
+#ls -lR /home/travis
 
 echo --------------------- -----------------
-java -version
+/usr/bin/java -version
 echo --------------------- -----------------
 
 #$SONAR_SCANNER_HOME/bin/sonar-scanner
