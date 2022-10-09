@@ -30,6 +30,7 @@ fi
 
 echo ===============================
 echo Testingy wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
+echo I am $(whoami)
 ls -lR /home/travis
 
 echo --------------------- -----------------
