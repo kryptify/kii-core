@@ -18,13 +18,13 @@ addons:
   sonarcloud:
     organization: "kiiglobal"
     token:
-      secure: "Lt5NPtLvE0jdWsISPZRJ995R3nvjbxZU+oITGOXrvGvgzX+8x3X0lmibpUH1lT9MOlF4atNsqFXeOnKTiXWa2zpX+hNEwdfgfMRR2kCU5V6aMtfsUz3SPm+Auxud+0SAV3THi6zNbR3tviGWVAIhg0zx25G1QakbnFQD41gzSRpqNPyeLZCAzx91bwUKyC0b8AiSk1x9/Izhnv8bqFDZXPZqHEjKv5VX/Sk5htAeojxb6Looa/RU0nc25wK5ndOvun53iTUqwyJaEDk40jR93X84MquRULUNyeKCVs47wSz1enza5gjemhZDFE1G65BNsYm5peO3LMgf2GQb/13WIErdR5yOxGp85AFKv0kn/2NabeRMe1Hgim8WwCh6cV7OkDiHicuMBcYsI4JB2owqlC9dO3HphUxHacwBiqjTLozPsv5V0SZiAixF6UpQheW8dSBtqu63Mfq47znUsQrSH9T4wSzDtFS8bWTE4WwZqYjMVVDo0bwKrM5k9hqLE0jg7vKyG2tVjpIcvItuMm+gEiD9QnCR7r2eMTE6JXnFuR/eYKjAALMkgWHdRGyQpmkXUJmIJeRJgzHp7mFtnjScnkCERlJVQ5AlE3kkSQjVmblTZ2i8mXTSa9HVyjjgye+EDQyOjSzfD59wy6aqlW6WNmEdN7Mrx729xgNRYihWVBs="
-
+      secure: "HV9y0j1G2RKcIKCfhLbiUt0mrA/OqIBGkiNR1M5FSp66KXcpXRUZK7FOEGQRpZwPfvX1CsUyybBXd1Hdu8QYvOhoIXWae/Kj7QcbjB83Zn7PyT3HG9Dl7QNFSaEd0uKKBOJ0QXRH7EKHHqCV34k6wegQPnBtQEHxQqgkpGqYkw6lLrpYCW5CsZcGH9KKvxSrWENUSmulXK9n/PyAJSus2yDp18W3KyudFBQaBLHCb0cBvvAxan3+xE9cbfyQDxmEpDC7L0YkZ3nVRYjyuKSDY7BiyXBz7vTd1TU2i5Bh3USp8mO+XfmGV4uEb+2GMMZizEA1jRZPdeZ+DoZOO4Zk9FPVJmUsi0GaF+5eUxAktaUAqeejl1DQn4WIncLXErqR6aH0Z3OhL8hjT8FlVp4api0bicsYkCHPrejwDGIi1J2jRKN5yPkEfXNd7yFq2RHtUt6eKfXO5qTIc5mjL5Y78K78wmRNEDRw4o5kf5auVJ1+4IOFIClQ5dIrXW/N+id2l+KXDR0YDkFWTS6pDKXHVWpEJGce3ZIvL+3I2eiliAcUw24eiiF1u37w9he8NFULBXPIkokaDFjjBoSZSSvsEHQk2DB4NmSmZwVnn8iNurs3UL+sGJS7zQohr2T7zw1C7PsH13DDqk1glIQJwq7GQnZAOH0jr9XQcyEr0ZhSWqA="
+    
 env:
   global:
     - SONAR=true
     - ARCH="x86_64-pc-linux-gnu"
-#    - SONAR_TOKEN: "2145a165fed83cfe944b62f6f8bd552860cb5931"
+#    - SONAR_TOKEN: "4d2287771b1411b6e4464dc639007c3fc4976609"
  
 before_install:
   - sudo apt-get update -qq # make the output less noisy
@@ -33,7 +33,6 @@ script
   - echo " The env is:"
   - env
   - echo "-------------------------------------"  
-  - exit 0:
   - cd depends
   - echo "About to build depends with $(nproc --all)"
   - ./run-with-dots.sh make HOST=$ARCH -j$(nproc --all) > /dev/null 2>&1
