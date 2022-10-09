@@ -30,7 +30,6 @@ before_install:
   - sudo apt-get update -qq # make the output less noisy
 
 script:
-  - exit 0
   - cd depends
     - export CPUS=$(nproc --all)
   - echo "About to build depends with -j${CPUS}"
