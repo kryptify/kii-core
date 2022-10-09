@@ -29,7 +29,7 @@ env:
 before_install:
   - sudo apt-get update -qq # make the output less noisy
 
-script
+script:
   - echo " The env is:"
   - env
   - echo "-------------------------------------"  
