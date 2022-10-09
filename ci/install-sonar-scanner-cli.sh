@@ -5,6 +5,16 @@
 
 #Get and download sonar-scanner
 
+echo =================================
+echo Manual install of SonarCloud
+echo Whoami $(whoami) at pwd=$(pwd)
+echo =================================
+echo Full env and ls -la is
+ls -la
+echo ===== now env ====================
+env
+echo ==================================
+
 SONAR_URL="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli"
 SONAR_FILE="sonar-scanner-cli-4.7.0.2747"
 SONAR_DIR="sonar-scanner-4.7.0.2747"
