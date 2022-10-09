@@ -29,7 +29,7 @@ if [ -n "$OSX_SDK" ]; then
 fi
 
 echo ===============================
-echo Testing wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
+echo Testingx wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
 ls -la /opt
 
 echo --------------------- -----------------
