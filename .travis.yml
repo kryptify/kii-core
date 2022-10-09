@@ -31,9 +31,8 @@ before_install:
 
 script:
   - cd depends
-    - export CPUS=$(nproc --all)
-  - echo "About to build depends with -j${CPUS}"
-  - make HOST=$ARCH -j${CPUS} > /dev/null 2>&1
+  - echo "About to build depends with $(nproc --all)"
+  - make HOST=$ARCH -j$(nproc --all) > /dev/null 2>&1
   - echo "-------------------------------------"
   - cd ..
   - echo "About to make autogen.sh"
@@ -43,8 +42,8 @@ script:
   - mkdir build 
   - CONFIG_SITE=$(pwd)/depends//$ARCH/share/config.site ./configure --prefix=./build/$ARCH
   - echo "-------------------------------------"
-  - echo "About to make with -j$CPUS"
-  - build-wrapper-linux-x86-64 --out-dir bw-output make make -j${CPUS} || ( echo "Build failure. Verbose build follows." && false )
+  - echo "About to make with -j$(nproc --all)"
+  - build-wrapper-linux-x86-64 --out-dir bw-output make make -j$(nproc --all) || ( echo "Build failure. Verbose build follows." && false )
   - echo "-------------------------------------"
   - echo "About to run sonar-scanner"
   - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
