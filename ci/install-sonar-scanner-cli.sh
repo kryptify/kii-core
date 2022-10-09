@@ -5,8 +5,8 @@
 
 3cho ===================================
 echo Voy
-ls -l $SONAR_SCANNER_HOME
-$SONAR_SCANNER_HOME/bin/sonar-scanner
+ls -la /home/travis
+/home/travis/.sonarscanner/sonar-scanner/bin/sonar-scanner
 echo ====================================
 
 exit 1
