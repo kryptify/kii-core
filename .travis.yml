@@ -32,7 +32,7 @@ before_install:
 script:
   - cd depends
   - echo "About to build depends with $(nproc --all)"
-  - make HOST=$ARCH -j$(nproc --all) > /dev/null 2>&1
+  - ./run-with-dots.sh make HOST=$ARCH -j$(nproc --all) > /dev/null 2>&1
   - echo "-------------------------------------"
   - cd ..
   - echo "About to make autogen.sh"
