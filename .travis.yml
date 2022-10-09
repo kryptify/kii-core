@@ -4,7 +4,7 @@
 dist: focal
 language: c++
 os: linux
-sudo: required
+#sudo: required
 
 services:
   - docker
@@ -40,7 +40,7 @@ script:
   - echo "About to make autogen.sh"
   - ./autogen.sh
   - echo "-------------------------------------"
-- echo "About to ./configure"
+  - echo "About to ./configure"
   - mkdir build 
   - CONFIG_SITE=$(pwd)/depends//$ARCH/share/config.site ./configure --prefix=./build/$ARCH
   - echo "-------------------------------------"
