@@ -30,8 +30,10 @@ fi
 
 echo ===============================
 echo Testingx wrapper and sonar-scanner TRAVIS_HOME=$TRAVIS_HOME
-ls -la /opt
+ls -la /home/travis
 
+echo --------------------- -----------------
+java -version
 echo --------------------- -----------------
 
 #$SONAR_SCANNER_HOME/bin/sonar-scanner
