@@ -3,6 +3,14 @@
 # This script is executed inside the builder image
 
 
+3cho ===================================
+echo Voy
+ls -l $SONAR_SCANNER_HOME
+$SONAR_SCANNER_HOME/bin/sonar-scanner
+echo ====================================
+
+exit 1
+
 #Get and download sonar-scanner
 
 echo =================================
