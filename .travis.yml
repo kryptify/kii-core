@@ -44,7 +44,7 @@ script:
   - CONFIG_SITE=$(pwd)/depends/$ARCH/share/config.site ./configure --prefix=$(pwd)/build/$ARCH
   - echo "-------------------------------------"
   - echo "About to make with -j$(nproc --all)"
-  - build-wrapper-linux-x86-64 --out-dir bw-output make make -j$(nproc --all) || ( echo "Build failure. Verbose build follows." && false )
+  - build-wrapper-linux-x86-64 --out-dir bw-output make make -j$(nproc --all) clean all || ( echo "Build failure. Verbose build follows." && false )
   - echo "-------------------------------------"
   - echo "About to run sonar-scanner"
   - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
