@@ -51,6 +51,6 @@ script:
   - build-wrapper-linux-x86-64 --out-dir bw-output make -j$(nproc --all) clean all || ( echo "Build failure. Verbose build follows." && false )
   - echo "-------------------------------------"
   - echo "About to run sonar-scanner"
-  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+  - sonar-scanner $SONARQUBE_SCANNER_PARAMS -Dsonar.cfamily.build-wrapper-output=bw-output
   - echo "-------------------------------------"
   - echo "Process ended"
