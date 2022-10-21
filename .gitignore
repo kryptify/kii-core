@@ -140,3 +140,4 @@ make
 # CLion
 .idea
 cmake-build-debug
+db4
